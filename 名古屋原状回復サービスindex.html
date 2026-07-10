@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>名古屋原状回復サービス</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 10mm;
+            background-color: #ffffff;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            color: #333333;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-size: 10pt;
+        }
+        
+        .header-banner {
+            margin: -12mm -10mm 20px -10mm;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+        .header-banner h1 {
+            font-size: 18pt;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .header-banner .subtitle {
+            font-size: 10.5pt;
+            margin: 0 0 10px 0;
+            opacity: 0.9;
+        }
+        .header-banner .catchphrase {
+            display: inline-block;
+            background-color: #ffeb3b;
+            color: #333333;
+            padding: 5px 12px;
+            font-size: 11pt;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .intro-box {
+            background-color: #f4f7fa;
+            border-left: 5px solid #2a5298;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        .intro-box p {
+            margin: 0 0 8px 0;
+        }
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 13pt;
+            color: #1e3c72;
+            border-bottom: 2px solid #2a5298;
+            padding-bottom: 4px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 11pt;
+            color: #2a5298;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        .features-container {
+            margin-bottom: 20px;
+        }
+        .feature-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            page-break-inside: avoid;
+        }
+        .feature-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            color: #2a5298;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        /* 2カラムレイアウト用（PDF印刷時に崩れないよう配慮） */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+        .col-6 {
+            width: 48%;
+        }
+
+        /* 特性リスト */
+        .benefit-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .benefit-list li {
+            margin-bottom: 6px;
+        }
+
+        /* テーブルスタイル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #dcdcdc;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f4f7fa;
+            color: #1e3c72;
+            width: 25%;
+            font-weight: bold;
+        }
+        .price-table th {
+            text-align: center;
+        }
+        .price-table td {
+            text-align: right;
+        }
+        .price-table td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .area-tags {
+            line-height: 1.8;
+        }
+        .area-tag {
+            display: inline-block;
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            padding: 1px 6px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 9pt;
+        }
+        .area-main {
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 3px;
+            font-size: 9.5pt;
+        }
+
+        .cta-section {
+            background-color: #fdf8e2;
+            border: 1px dashed #f57c00;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+        .cta-bold {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #d84315;
+            margin: 0 0 5px 0;
+        }
+        .cta-sub {
+            font-size: 9.5pt;
+            color: #444;
+            margin: 0;
+        }
+        
+        .badge-effect {
+            display: inline-block;
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 9pt;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <h1>名古屋原状回復サービス</h1>
+        <div class="subtitle">代表：竹田　利紗 （クロスクリアバリアコート特約代理店）</div>
+        <div class="catchphrase">賃貸の原状回復コストを最大半額に！壁紙を「張り替えない」新しいリフォーム</div>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            <p>ご覧いただきありがとうございます。名古屋市を中心に、賃貸物件の原状回復・壁紙再生（クロスクリア）を行っております、「名古屋原状回復サービス」の竹田と申します。</p>
+            <p>「退去後のクロス張り替え費用を抑えたい」「次の入居者を早く決めるために、部屋を綺麗にしたい」そんな不動産オーナー様や管理会社様のコスト削減と空室対策をサポートいたします。</p>
+        </div>
+
+        <h2>当店の3つの強み</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <span class="feature-title">1. 圧倒的な低コスト</span>
+                <p style="margin:0;">剥がして捨てる高額な張り替えとは違い、今ある壁紙の上から染色するため、施工費用を従来の約半額に抑えられます。</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-title">2. スピード施工＆即入居可</span>
+                <p style="margin:0;">ワンルームであれば数時間〜半日で施工完了。施工後はほのかなフルーツの香りが漂い、嫌なニオイも残らないため、すぐに入居募集・内見が可能です。</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-title">3. 安心の正規代理店</span>
+                <p style="margin:0;">本部の専門技術研修を修了した認定施工者が、1部屋ずつ心を込めて丁寧に施工いたします。</p>
+            </div>
+        </div>
+
+        <h2>クロスクリアバリアコートの優れた特性と効果</h2>
+        <div class="row">
+            <div class="col-6">
+                <h3>【安全・安心の4大効果】</h3>
+                <p style="margin:0 0 10px 0; font-size:9.5pt;">画期的な<strong>空気触媒</strong>の採用により、エネルギーコスト0円で長期的に効果が持続します。</p>
+                <span class="badge-effect">消臭</span>
+                <span class="badge-effect">抗菌</span>
+                <span class="badge-effect">防カビ</span>
+                <span class="badge-effect">有害化学物質分解</span>
+            </div>
+            <div class="col-6">
+                <h3>【住まいの健康を守る7つの特性】</h3>
+                <ul class="benefit-list" style="font-size:9.5pt;">
+                    <li>タバコ、ペット、トイレ、生活臭を分解消臭</li>
+                    <li>空気中に浮遊する見えない雑菌の発生を防ぐ</li>
+                    <li>洗面室など水廻りのしつこいカビを防止</li>
+                    <li>家具などから発生する有害化学物質を分解</li>
+                    <li>光のない場所でも休むことなく効果を発揮</li>
+                    <li>人にも環境にもやさしくて安全</li>
+                    <li>どんな場所でもカンタン、スピーディーに施工</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>施工事例・サンプル</h2>
+        <div class="feature-card">
+            <strong>■ 施工事例1：クロスクリアバリアコート（タバコのヤニ・くすみ対策）</strong>
+            <p style="margin:4px 0 0 0; font-size:9.5pt; color:#555;">タバコによりくすんでしまっていた壁紙も、ご覧の通り真っ白に。通常貼り替える必要のあるお部屋もクロスクリアならお安くきれいに仕上がります。</p>
+        </div>
+        <div class="feature-card">
+            <strong>■ 施工事例2：チタンコーティング（消臭・抗菌効果の追加）</strong>
+            <p style="margin:4px 0 0 0; font-size:9.5pt; color:#555;">酸化チタンの配合により、消臭・抗菌効果もございますので、新築の建物の壁紙への施工も承っております。</p>
+        </div>
+        <div class="feature-card">
+            <strong>■ 施工事例3：壁紙の補修</strong>
+            <p style="margin:4px 0 0 0; font-size:9.5pt; color:#555;">壁紙の継ぎ目の割れ目等も、まるで割れ目も無かったかのようにきれいに仕上がります。</p>
+        </div>
+        <div class="feature-card">
+            <strong>■ 豊富なカラーバリエーション（全27色）</strong>
+            <p style="margin:4px 0 0 0; font-size:9.5pt; color:#555;">基本カラーの「ホワイトアイボリー」「ピュアホワイト」「アイボリー」をはじめ、サクラ(桜)、ピンク、ライトシアン、ライトグリーン、レモン、オレンジ、ネイビーブラックなど、お部屋の雰囲気に合わせた多彩な壁紙塗色・壁紙再生が可能です。</p>
+        </div>
+
+        <h2>料金表（税込価格）</h2>
+        <p style="font-size:9pt; color:#555; margin-bottom:5px;">※ワンルーム又はDK又は洋室6帖以下（最低施工代金です）。洋室6帖間を2部屋、壁と天井施工の場合は30,000円。他の部屋とセット施工の場合、洋室6帖間15,000円でOK！</p>
+        <table class="price-table">
+            <thead>
+                <tr style="background-color: #f4f7fa;">
+                    <th style="width: 50%; text-align: left;">お部屋のタイプ・広さの目安</th>
+                    <th style="width: 25%;">壁面のみ</th>
+                    <th style="width: 25%;">壁・天井</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ワンルーム / DK / 洋室6帖以下</td>
+                    <td>¥ 19,800</td>
+                    <td>¥ 26,400</td>
+                </tr>
+                <tr>
+                    <td>洋室 又は LDK 7帖〜13帖</td>
+                    <td>¥ 33,000</td>
+                    <td>¥ 39,600</td>
+                </tr>
+                <tr>
+                    <td>1Kタイプ（専有面積30平米未満）<br><span style="font-size:8.5pt; font-weight:normal; color:#666;">例：洋室10帖、キッチン廊下玄関3帖</span></td>
+                    <td>¥ 33,000</td>
+                    <td>¥ 39,600</td>
+                </tr>
+                <tr>
+                    <td>ワンルーム 又は LDK等（14帖〜15帖）<br><span style="font-size:8.5pt; font-weight:normal; color:#666;">例：洋室12帖、キッチン廊下玄関3帖</span></td>
+                    <td>¥ 39,600</td>
+                    <td>¥ 52,800</td>
+                </tr>
+                <tr>
+                    <td>ワンルーム 又は LDK等（16帖〜18帖）<br><span style="font-size:8.5pt; font-weight:normal; color:#666;">例：洋室8帖、LDK8帖、キッチン廊下玄関2帖</span></td>
+                    <td>¥ 52,800</td>
+                    <td>¥ 66,000</td>
+                </tr>
+                <tr>
+                    <td>2DK（専有面積約40〜49平米）</td>
+                    <td>¥ 66,000</td>
+                    <td>¥ 79,200</td>
+                </tr>
+                <tr>
+                    <td>2LDK（専有面積約50〜55平米）</td>
+                    <td>¥ 79,200</td>
+                    <td>¥ 92,400</td>
+                </tr>
+                <tr>
+                    <td>3DK（ちょっと大きな2LDK含む / 専有面積約56〜60平米）</td>
+                    <td>¥ 92,400</td>
+                    <td>¥ 105,600</td>
+                </tr>
+                <tr>
+                    <td>3LDK（専有面積約61〜70平米）マンション<br><span style="font-size:8.5pt; font-weight:normal; color:#666;">※一戸建ては見極り要</span></td>
+                    <td>¥ 105,600</td>
+                    <td>¥ 118,800</td>
+                </tr>
+                <tr>
+                    <td>4DK（ちょっと大きな3LDK含む / 専有面積約71〜80平米）マンション<br><span style="font-size:8.5pt; font-weight:normal; color:#666;">※一戸建ては見極り要</span></td>
+                    <td>¥ 118,800</td>
+                    <td>¥ 132,000</td>
+                </tr>
+                <tr>
+                    <td>4LDK（専有面積約81〜90平米）以上</td>
+                    <td style="text-align:center; font-weight:normal;">見積り要</td>
+                    <td style="text-align:center; font-weight:normal;">見積り要</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>店舗紹介・営業時間</h2>
+        <table>
+            <tr>
+                <th>店舗名</th>
+                <td>名古屋原状回復サービス （クリアバリアコート特約代理店）</td>
+            </tr>
+            <tr>
+                <th>所在地</th>
+                <td>〒464-0043<br>愛知県名古屋市千種区</td>
+            </tr>
+            <tr>
+                <th>営業時間</th>
+                <td>平日 9:00～18:00<br>
+                    <span style="font-size: 9pt; color: #666;">・メッセージ受付：24時間（年中無休）</span><br>
+                    <span style="font-size: 9pt; color: #666;">・施工：完全予約制（土日祝・夜間も柔軟に対応いたします）</span>
+                </td>
+            </tr>
+            <tr>
+                <th>定休日</th>
+                <td>土日祝日（柔軟に対応）</td>
+            </tr>
+            <tr>
+                <th>ご注意</th>
+                <td style="font-size: 9pt; color: #555;">日中は現場施工や打合せのため、お電話に出られない時間帯がございます。メッセージ（チャット）や<strong>LINEでの写真見積もり・ご相談</strong>をいただけましたら、迅速にご返信いたします。</td>
+            </tr>
+        </table>
+
+        <h2>対応地域</h2>
+        <table>
+            <tr>
+                <th>対応都道府県</th>
+                <td>愛知県</td>
+            </tr>
+            <tr>
+                <th>詳細エリア</th>
+                <td>
+                    <div class="area-main">【名古屋市】</div>
+                    <div class="area-tags" style="margin-bottom: 5px;">
+                        <span class="area-tag">千種区</span><span class="area-tag">東区</span><span class="area-tag">北区</span><span class="area-tag">西区</span><span class="area-tag">中村区</span><span class="area-tag">中区</span><span class="area-tag">昭和区</span><span class="area-tag">瑞穂区</span><span class="area-tag">熱田区</span><span class="area-tag">中川区</span><span class="area-tag">港区</span><span class="area-tag">南区</span><span class="area-tag">守山区</span><span class="area-tag">緑区</span><span class="area-tag">名東区</span><span class="area-tag">天白区</span>
+                    </div>
+                    <div class="area-main">【その他地域】</div>
+                    <div class="area-tags">
+                        <span class="area-tag">春日井市</span><span class="area-tag">刈谷市</span><span class="area-tag">小牧市</span><span class="area-tag">長久手市</span><span class="area-tag">日進市</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="cta-section">
+            <p class="cta-bold">まずは「1室の見積もりだけ」「費用の相談だけ」でも大歓迎です！</p>
+            <p class="cta-sub">LINEでの写真見積もりも受付中！オーナー様の立場に寄り添い、丁寧かつスピーディーに対応させていただきます。</p>
+        </div>
+    </div>
+
+</body>
+</html>
